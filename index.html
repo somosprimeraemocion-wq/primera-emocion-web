@@ -1,0 +1,816 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Invitaciones digitales personalizadas en Colombia | Primera Emoción</title>
+<meta name="description" content="Creamos invitaciones digitales personalizadas para XV años, bodas y celebraciones, con música, ubicación, calendario y confirmación de asistencia.">
+<meta property="og:title" content="Primera Emoción — Invitaciones digitales personalizadas">
+<meta property="og:description" content="La emoción comienza antes del gran día. Invitaciones digitales con música, fotografías, cuenta regresiva y confirmación de asistencia.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CO">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240"><path fill="%23B86B6F" d="M80 178c39-12 72-38 92-77 8 18 5 39-8 56-18 23-49 39-84 48 11-10 15-19 0-27Z"/><path fill="%23C8A96B" d="M80 199c36-8 69-24 94-49 1 18-8 35-24 48-18 14-43 23-70 28 8-9 10-18 0-27Z"/><path fill="%234A233B" d="M42 214V32h48c49 0 78 26 78 64 0 30-19 52-50 67-12 6-25 10-39 13v38H42Zm37-148v78c13-3 25-8 35-15 13-9 20-20 20-34 0-18-16-29-42-29H79Z"/><path fill="%23C8A96B" d="m176 27 6 14 14 6-14 6-6 14-6-14-14-6 14-6 6-14Z"/></svg>'>
+<style>
+:root{
+  --ciruela:#4a233b;
+  --ciruela-oscuro:#38182c;
+  --rosa:#b86b6f;
+  --rosa-suave:#e8c9c4;
+  --marfil:#f8f3ed;
+  --marfil-2:#f1e9df;
+  --champana:#c8a96b;
+  --tinta:#292127;
+  --blanco:#ffffff;
+  --display:"Playfair Display",Georgia,serif;
+  --body:"Montserrat",Avenir,-apple-system,sans-serif;
+  --radius-s:8px;
+  --radius-m:18px;
+  --radius-l:28px;
+  --shadow:0 18px 50px rgb(74 35 59 / 12%);
+  --shadow-strong:0 30px 80px rgb(74 35 59 / 22%);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);
+  color:var(--tinta);
+  background:var(--marfil);
+  line-height:1.65;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--display);color:var(--ciruela);line-height:1.15;font-weight:600}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+section{padding:96px 0}
+.kicker{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--rosa);
+}
+.kicker::after{content:"";width:44px;height:1px;background:var(--champana)}
+.section-head{max-width:640px;margin-bottom:56px}
+.section-head h2{font-size:clamp(28px,4vw,42px);margin:14px 0 16px}
+.section-head p{color:#5c4f57}
+.center{text-align:center}
+.center .section-head{margin-left:auto;margin-right:auto}
+.center .kicker::after{display:none}
+.center .kicker::before{content:"";width:44px;height:1px;background:var(--champana)}
+.center .kicker::after{content:"";display:inline-block;width:44px;height:1px;background:var(--champana)}
+
+/* ---------- Botones ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--body);font-weight:600;font-size:15px;
+  padding:16px 30px;border-radius:999px;border:1px solid transparent;
+  cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,background .25s ease;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--ciruela);color:var(--marfil);box-shadow:var(--shadow)}
+.btn-primary:hover{background:var(--ciruela-oscuro);box-shadow:var(--shadow-strong)}
+.btn-primary .spark{color:var(--champana)}
+.btn-outline{border-color:rgba(74,35,59,.25);color:var(--ciruela);background:transparent}
+.btn-outline:hover{border-color:var(--ciruela);background:rgba(74,35,59,.04)}
+.btn-wa{background:var(--rosa);color:#fff;box-shadow:var(--shadow)}
+.btn-wa:hover{background:#a55a5f}
+.btn-light{background:var(--marfil);color:var(--ciruela)}
+.btn-light:hover{background:#fff}
+
+/* ---------- Header ---------- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(248,243,237,.85);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(74,35,59,.08);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand svg{width:38px;height:38px}
+.brand-name{font-family:var(--display);font-weight:700;font-size:21px;color:var(--ciruela);letter-spacing:.01em}
+.brand-tag{display:block;font-family:var(--body);font-size:9.5px;font-weight:500;letter-spacing:.08em;color:#8a7580;text-transform:uppercase;margin-top:1px}
+.nav-links{display:flex;align-items:center;gap:34px;list-style:none}
+.nav-links a{font-size:14px;font-weight:500;color:var(--tinta);transition:color .2s}
+.nav-links a:hover{color:var(--rosa)}
+.nav-cta{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--ciruela);border:1px solid rgba(74,35,59,.3);padding:10px 20px;border-radius:999px;transition:all .25s}
+.nav-cta:hover{background:var(--ciruela);color:var(--marfil)}
+.burger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+.burger span{display:block;width:22px;height:2px;background:var(--ciruela);margin:5px 0;transition:.3s}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;overflow:hidden;padding:70px 0 110px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;position:relative}
+.hero h1{font-size:clamp(38px,5.6vw,64px);margin:18px 0 22px}
+.hero h1 em{font-style:italic;color:var(--rosa)}
+.hero p.lead{font-size:17px;color:#5c4f57;max-width:480px;margin-bottom:36px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.hero-note{margin-top:26px;font-size:13px;color:#8a7580;display:flex;align-items:center;gap:8px}
+.hero-note svg{flex:none}
+.fold{position:absolute;border-radius:50% 50% 0 0/100% 100% 0 0;pointer-events:none}
+.fold-1{width:900px;height:900px;background:var(--rosa);opacity:.10;right:-380px;top:-80px;transform:rotate(24deg)}
+.fold-2{width:700px;height:700px;background:var(--ciruela);opacity:.07;right:-320px;top:120px;transform:rotate(30deg)}
+.spark-float{position:absolute;color:var(--champana);animation:twinkle 4s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.35;transform:scale(.9)}50%{opacity:1;transform:scale(1.1)}}
+
+/* ---------- Teléfono demo ---------- */
+.phone-zone{position:relative;display:flex;justify-content:center}
+.phone{
+  width:300px;border-radius:44px;background:#1d1a1c;padding:12px;
+  box-shadow:var(--shadow-strong);position:relative;z-index:2;
+  animation:floaty 7s ease-in-out infinite;
+}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-12px) rotate(-1.5deg)}}
+.screen{
+  border-radius:34px;overflow:hidden;background:linear-gradient(165deg,#fdf6f3 0%,#f6e3de 55%,#efd3cd 100%);
+  position:relative;padding:46px 22px 30px;text-align:center;min-height:560px;
+  display:flex;flex-direction:column;align-items:center;
+}
+.screen::before{
+  content:"";position:absolute;top:12px;left:50%;transform:translateX(-50%);
+  width:90px;height:26px;background:#1d1a1c;border-radius:16px;
+}
+.screen .layer-a,.screen .layer-b{position:absolute;border-radius:50% 50% 0 0/100% 100% 0 0}
+.layer-a{width:420px;height:420px;background:var(--ciruela);opacity:.9;bottom:-260px;right:-160px;transform:rotate(-12deg)}
+.layer-b{width:380px;height:380px;background:var(--rosa);opacity:.75;bottom:-250px;left:-150px;transform:rotate(14deg)}
+.inv-label{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--rosa);font-weight:600;margin-bottom:10px}
+.inv-name{font-family:var(--display);font-size:40px;color:var(--ciruela);line-height:1.05}
+.inv-name span{display:block;font-size:16px;font-style:italic;color:var(--rosa);margin-bottom:6px}
+.inv-orn{color:var(--champana);font-size:14px;letter-spacing:.5em;margin:14px 0}
+.inv-photo{
+  width:150px;height:190px;border-radius:80px 80px 80px 80px/110px 110px 60px 60px;
+  border:1.5px solid var(--champana);
+  background:radial-gradient(circle at 50% 32%,#e9c8be 0%,#dba8a0 45%,#c98d8c 100%);
+  position:relative;overflow:hidden;margin-bottom:16px;
+}
+.inv-photo::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 30%,rgba(255,255,255,.5),transparent 55%);
+}
+.inv-date{font-family:var(--display);font-size:17px;color:var(--tinta);letter-spacing:.12em}
+.countdown{display:flex;gap:8px;margin-top:16px;position:relative;z-index:2}
+.cd{
+  background:rgba(255,255,255,.75);border:1px solid rgba(200,169,107,.5);
+  border-radius:10px;padding:7px 0;width:52px;
+}
+.cd b{display:block;font-family:var(--display);font-size:18px;color:var(--ciruela);line-height:1}
+.cd small{font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:#8a7580}
+.inv-cta{
+  margin-top:18px;position:relative;z-index:2;
+  background:var(--ciruela);color:var(--marfil);font-size:11px;font-weight:600;
+  letter-spacing:.08em;padding:10px 22px;border-radius:999px;
+}
+.phone-badge{
+  position:absolute;z-index:3;background:#fff;border-radius:14px;box-shadow:var(--shadow);
+  padding:12px 16px;font-size:12.5px;font-weight:500;display:flex;align-items:center;gap:10px;
+}
+.badge-music{top:16%;left:-4%;animation:floaty 6s ease-in-out infinite reverse}
+.badge-rsvp{bottom:12%;right:-6%;animation:floaty 8s ease-in-out infinite}
+.phone-badge .dot{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none}
+.badge-music .dot{background:rgba(184,107,111,.14);color:var(--rosa)}
+.badge-rsvp .dot{background:rgba(200,169,107,.18);color:var(--champana)}
+
+/* ---------- Beneficios ---------- */
+.benefits{background:var(--blanco);border-top:1px solid rgba(74,35,59,.06);border-bottom:1px solid rgba(74,35,59,.06);padding:44px 0}
+.benefits .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.benefit{display:flex;align-items:center;gap:14px;justify-content:center}
+.benefit .ico{width:44px;height:44px;border-radius:50%;background:var(--marfil);display:flex;align-items:center;justify-content:center;color:var(--champana);flex:none}
+.benefit span{font-size:14px;font-weight:500}
+
+/* ---------- Muestras ---------- */
+.samples-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.sample{
+  background:var(--blanco);border-radius:var(--radius-m);overflow:hidden;
+  box-shadow:var(--shadow);transition:transform .35s ease,box-shadow .35s ease;
+  display:flex;flex-direction:column;
+}
+.sample:hover{transform:translateY(-8px);box-shadow:var(--shadow-strong)}
+.sample-visual{height:250px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.sample-visual .mini{text-align:center;position:relative;z-index:2}
+.mini .m-label{font-size:9px;letter-spacing:.3em;text-transform:uppercase;font-weight:600;margin-bottom:8px}
+.mini .m-name{font-family:var(--display);font-size:30px;line-height:1.1}
+.mini .m-orn{font-size:11px;letter-spacing:.45em;margin-top:10px}
+.sv-esmeralda{background:linear-gradient(160deg,#0e2f26 0%,#14453a 60%,#1c5a4a 100%)}
+.sv-esmeralda .m-label{color:#c8a96b}.sv-esmeralda .m-name{color:#f4ede1}.sv-esmeralda .m-orn{color:#c8a96b}
+.sv-romantica{background:linear-gradient(160deg,#fdf3f1 0%,#f3d9d6 60%,#e8c2be 100%)}
+.sv-romantica .m-label{color:#b86b6f}.sv-romantica .m-name{color:#4a233b}.sv-romantica .m-orn{color:#c8a96b}
+.sv-tarjeta{background:linear-gradient(160deg,#40203a 0%,#4a233b 55%,#5d2f4a 100%)}
+.sv-tarjeta .m-label{color:#c8a96b}.sv-tarjeta .m-name{color:#f8f3ed}.sv-tarjeta .m-orn{color:#b86b6f}
+.sample-visual .halo{position:absolute;width:300px;height:300px;border-radius:50%;filter:blur(10px);opacity:.25;background:#fff;top:-160px;right:-120px}
+.sample-body{padding:26px 26px 30px;display:flex;flex-direction:column;gap:12px;flex:1}
+.sample-body h3{font-size:21px}
+.sample-body p{font-size:14px;color:#5c4f57;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:11px;font-weight:500;color:var(--ciruela);background:var(--marfil);border:1px solid rgba(200,169,107,.45);padding:5px 12px;border-radius:999px}
+.sample-link{font-size:14px;font-weight:600;color:var(--rosa);display:inline-flex;align-items:center;gap:8px;margin-top:6px}
+.sample-link:hover{color:var(--ciruela)}
+.samples-note{margin-top:34px;font-size:13.5px;color:#8a7580;text-align:center}
+
+/* ---------- Propuesta de valor ---------- */
+.value{background:var(--ciruela);color:var(--marfil)}
+.value .kicker{color:var(--champana)}
+.value h2{color:var(--marfil)}
+.value .section-head p{color:rgba(248,243,237,.75)}
+.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.value-item{border-top:1px solid rgba(200,169,107,.4);padding-top:26px}
+.value-item .num{font-family:var(--display);font-size:15px;color:var(--champana);letter-spacing:.15em}
+.value-item h3{color:var(--marfil);font-size:21px;margin:12px 0 10px}
+.value-item p{font-size:14.5px;color:rgba(248,243,237,.78)}
+.value-quote{
+  margin-top:70px;text-align:center;font-family:var(--display);font-style:italic;
+  font-size:clamp(20px,2.8vw,28px);color:var(--rosa-suave);max-width:720px;margin-left:auto;margin-right:auto;
+}
+.value-quote .q-orn{display:block;color:var(--champana);font-style:normal;font-size:16px;letter-spacing:.5em;margin-bottom:18px}
+
+/* ---------- Cómo funciona ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;counter-reset:step}
+.step{background:var(--blanco);border-radius:var(--radius-m);padding:32px 26px;box-shadow:var(--shadow);position:relative}
+.step .s-num{
+  width:46px;height:46px;border-radius:50%;background:var(--marfil);border:1px solid rgba(200,169,107,.5);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-size:19px;color:var(--ciruela);margin-bottom:18px;
+}
+.step h3{font-size:18px;margin-bottom:8px}
+.step p{font-size:13.5px;color:#5c4f57}
+
+/* ---------- Formatos ---------- */
+.formats{background:var(--marfil-2)}
+.formats-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.format{
+  border-radius:var(--radius-l);padding:46px 42px;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;gap:16px;box-shadow:var(--shadow);
+}
+.format-main{background:var(--ciruela);color:var(--marfil)}
+.format-main h3{color:var(--marfil)}
+.format-alt{background:var(--blanco)}
+.format .f-kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:600}
+.format-main .f-kicker{color:var(--champana)}
+.format-alt .f-kicker{color:var(--rosa)}
+.format h3{font-size:26px}
+.format p{font-size:14.5px}
+.format-main p{color:rgba(248,243,237,.8)}
+.format-alt p{color:#5c4f57}
+.format ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin:6px 0 10px}
+.format li{font-size:14px;display:flex;align-items:flex-start;gap:10px}
+.format li svg{flex:none;margin-top:4px}
+.format-main li svg{color:var(--champana)}
+.format-alt li svg{color:var(--rosa)}
+.format .btn{align-self:flex-start;margin-top:auto}
+.format .f-fold{position:absolute;width:340px;height:340px;border-radius:50% 50% 0 0/100% 100% 0 0;opacity:.12;right:-140px;bottom:-200px;transform:rotate(-16deg)}
+.format-main .f-fold{background:var(--rosa)}
+.format-alt .f-fold{background:var(--ciruela)}
+.format-badge{position:absolute;top:24px;right:24px;background:rgba(200,169,107,.2);color:var(--champana);font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:6px 14px;border-radius:999px}
+
+/* ---------- FAQ ---------- */
+.faq-list{max-width:760px;margin:0 auto}
+details{
+  background:var(--blanco);border-radius:var(--radius-s);margin-bottom:14px;
+  border:1px solid rgba(74,35,59,.08);overflow:hidden;transition:box-shadow .25s;
+}
+details[open]{box-shadow:var(--shadow)}
+summary{
+  cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:20px 26px;font-weight:600;font-size:15px;color:var(--ciruela);
+}
+summary::-webkit-details-marker{display:none}
+summary .chev{transition:transform .3s;color:var(--champana);flex:none}
+details[open] .chev{transform:rotate(45deg)}
+details .a{padding:0 26px 22px;font-size:14.5px;color:#5c4f57}
+
+/* ---------- Cierre ---------- */
+.closing{
+  background:linear-gradient(160deg,var(--ciruela) 0%,#5d2f4a 60%,var(--ciruela-oscuro) 100%);
+  color:var(--marfil);text-align:center;position:relative;overflow:hidden;padding:110px 0;
+}
+.closing h2{color:var(--marfil);font-size:clamp(30px,4.5vw,48px);max-width:680px;margin:0 auto 20px}
+.closing p{color:rgba(248,243,237,.8);max-width:520px;margin:0 auto 40px}
+.closing .fold{opacity:.08}
+.closing .spark-float{opacity:.7}
+
+/* ---------- Footer ---------- */
+footer{background:var(--ciruela-oscuro);color:rgba(248,243,237,.7);padding:56px 0 32px;font-size:13.5px}
+.foot-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;margin-bottom:40px}
+.foot-brand .brand-name{color:var(--marfil)}
+.foot-brand p{max-width:280px;margin-top:12px;font-size:13px}
+.foot-col h4{font-family:var(--body);font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--champana);margin-bottom:16px}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.foot-col a:hover{color:var(--marfil)}
+.foot-bottom{border-top:1px solid rgba(248,243,237,.12);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:rgba(248,243,237,.45)}
+
+/* ---------- WhatsApp flotante ---------- */
+.wa-float{
+  position:fixed;bottom:26px;right:26px;z-index:60;
+  width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 12px 32px rgba(0,0,0,.25);transition:transform .25s;
+}
+.wa-float:hover{transform:scale(1.08)}
+
+/* ---------- Reveal ---------- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+.reveal-d1{transition-delay:.12s}
+.reveal-d2{transition-delay:.24s}
+.reveal-d3{transition-delay:.36s}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .phone,.phone-badge,.spark-float{animation:none}
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width:960px){
+  section{padding:72px 0}
+  .hero .wrap{grid-template-columns:1fr;gap:56px}
+  .phone-zone{order:2}
+  .benefits .wrap{grid-template-columns:repeat(2,1fr);gap:24px}
+  .benefit{justify-content:flex-start}
+  .samples-grid{grid-template-columns:1fr;max-width:440px;margin:0 auto}
+  .value-grid{grid-template-columns:1fr;gap:28px}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .formats-grid{grid-template-columns:1fr}
+  .nav-links{
+    position:fixed;inset:76px 0 auto 0;background:var(--marfil);
+    flex-direction:column;gap:0;padding:10px 0 24px;display:none;
+    border-bottom:1px solid rgba(74,35,59,.1);box-shadow:var(--shadow);
+  }
+  .nav-links.open{display:flex}
+  .nav-links li{width:100%;text-align:center}
+  .nav-links a{display:block;padding:14px 0;font-size:16px}
+  .nav-cta{display:none}
+  .burger{display:block}
+}
+@media (max-width:560px){
+  .steps{grid-template-columns:1fr}
+  .hero{padding:48px 0 80px}
+  .phone{width:270px}
+  .screen{min-height:520px}
+  .phone-badge{display:none}
+  .hero-actions .btn{width:100%}
+  .format{padding:36px 28px}
+}
+</style>
+</head>
+<body>
+
+<!-- ======= HEADER ======= -->
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#inicio" aria-label="Primera Emoción — inicio">
+      <svg viewBox="0 0 240 240" aria-hidden="true"><path fill="#B86B6F" d="M80 178c39-12 72-38 92-77 8 18 5 39-8 56-18 23-49 39-84 48 11-10 15-19 0-27Z"/><path fill="#C8A96B" d="M80 199c36-8 69-24 94-49 1 18-8 35-24 48-18 14-43 23-70 28 8-9 10-18 0-27Z"/><path fill="#4A233B" d="M42 214V32h48c49 0 78 26 78 64 0 30-19 52-50 67-12 6-25 10-39 13v38H42Zm37-148v78c13-3 25-8 35-15 13-9 20-20 20-34 0-18-16-29-42-29H79Z"/><path fill="#C8A96B" d="m176 27 6 14 14 6-14 6-6 14-6-14-14-6 14-6 6-14Z"/></svg>
+      <span>
+        <span class="brand-name">Primera Emoción</span>
+        <span class="brand-tag">Invitaciones digitales</span>
+      </span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#muestras">Muestras</a></li>
+      <li><a href="#experiencias">Experiencias</a></li>
+      <li><a href="#como-funciona">Cómo funciona</a></li>
+      <li><a href="#preguntas">Preguntas</a></li>
+      <li><a class="wa-link" href="#" data-wa>Hablar por WhatsApp</a></li>
+    </ul>
+    <a class="nav-cta wa-link" href="#" data-wa>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.9-1.4A10 10 0 1 0 12 2Zm5 13.6c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .2-3.2-.7-2.7-1.1-4.4-3.8-4.6-4-.1-.2-1.1-1.4-1.1-2.8 0-1.3.7-2 1-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.2.1.3 0 .5l-.4.6c-.1.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.2.5.1.7-.1l1-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3 0 .1 0 .7-.2 1.4Z"/></svg>
+      WhatsApp
+    </a>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="inicio">
+
+<!-- ======= HERO ======= -->
+<section class="hero">
+  <div class="fold fold-1"></div>
+  <div class="fold fold-2"></div>
+  <div class="wrap">
+    <div>
+      <span class="kicker reveal">Invitaciones digitales personalizadas</span>
+      <h1 class="reveal reveal-d1">La emoción comienza <em>antes</em> del gran día.</h1>
+      <p class="lead reveal reveal-d2">Creamos invitaciones digitales que emocionan, cuentan tu historia y hacen fácil organizar a tus invitados: música, fotografías, cuenta regresiva, ubicación y confirmación de asistencia.</p>
+      <div class="hero-actions reveal reveal-d3">
+        <a class="btn btn-primary" href="#muestras">Ver muestras <span class="spark">✦</span></a>
+        <a class="btn btn-outline wa-link" href="#" data-wa>Cotizar por WhatsApp</a>
+      </div>
+      <p class="hero-note reveal reveal-d3">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#c8a96b" stroke-width="2" aria-hidden="true"><path d="M12 2l2.4 5.6L20 10l-5.6 2.4L12 18l-2.4-5.6L4 10l5.6-2.4L12 2z"/></svg>
+        Diseño a tu medida · Acompañamiento humano · Lista para compartir por WhatsApp
+      </p>
+    </div>
+
+    <div class="phone-zone reveal reveal-d2">
+      <div class="phone" aria-label="Ejemplo de invitación digital">
+        <div class="screen">
+          <div class="layer-a"></div>
+          <div class="layer-b"></div>
+          <p class="inv-label">Te invito a celebrar</p>
+          <p class="inv-name"><span>Mis XV</span>Valentina</p>
+          <p class="inv-orn">✦ ✧ ✦</p>
+          <div class="inv-photo"></div>
+          <p class="inv-date">18 · 10 · 2026</p>
+          <div class="countdown" id="countdown" aria-label="Cuenta regresiva del evento">
+            <div class="cd"><b data-cd="d">—</b><small>días</small></div>
+            <div class="cd"><b data-cd="h">—</b><small>horas</small></div>
+            <div class="cd"><b data-cd="m">—</b><small>min</small></div>
+            <div class="cd"><b data-cd="s">—</b><small>seg</small></div>
+          </div>
+          <span class="inv-cta">Confirmar asistencia</span>
+        </div>
+      </div>
+      <div class="phone-badge badge-music">
+        <span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
+        Con tu canción favorita
+      </div>
+      <div class="phone-badge badge-rsvp">
+        <span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>
+        Confirmación de invitados
+      </div>
+      <span class="spark-float" style="top:6%;right:8%;font-size:22px">✦</span>
+      <span class="spark-float" style="bottom:4%;left:6%;font-size:14px;animation-delay:1.5s">✧</span>
+    </div>
+  </div>
+</section>
+
+<!-- ======= BENEFICIOS ======= -->
+<div class="benefits">
+  <div class="wrap">
+    <div class="benefit reveal">
+      <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg></span>
+      <span>Diseño personalizado</span>
+    </div>
+    <div class="benefit reveal reveal-d1">
+      <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
+      <span>Música y movimiento</span>
+    </div>
+    <div class="benefit reveal reveal-d2">
+      <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+      <span>Ubicación y calendario</span>
+    </div>
+    <div class="benefit reveal reveal-d3">
+      <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+      <span>Confirmación de asistencia</span>
+    </div>
+  </div>
+</div>
+
+<!-- ======= MUESTRAS ======= -->
+<section id="muestras">
+  <div class="wrap">
+    <div class="section-head center" style="margin-left:auto;margin-right:auto;text-align:center">
+      <span class="kicker reveal">Muestras</span>
+      <h2 class="reveal reveal-d1">Una invitación que se siente tuya.</h2>
+      <p class="reveal reveal-d2">Cada celebración tiene una historia, una estética y una emoción diferente. Diseñamos una experiencia que se adapta a ellas.</p>
+    </div>
+    <div class="samples-grid">
+      <article class="sample reveal">
+        <div class="sample-visual sv-esmeralda">
+          <span class="halo"></span>
+          <div class="mini">
+            <p class="m-label">Mis quince años</p>
+            <p class="m-name">Paula</p>
+            <p class="m-orn">✦ ✦ ✦</p>
+          </div>
+        </div>
+        <div class="sample-body">
+          <h3>XV años · Esmeralda</h3>
+          <p>Una experiencia elegante y nocturna, con apertura animada, galería de fotografías y cuenta regresiva.</p>
+          <div class="tags"><span class="tag">Música</span><span class="tag">Cuenta regresiva</span><span class="tag">RSVP</span></div>
+          <a class="sample-link wa-link" href="#" data-wa data-msg="Hola, quiero ver la demostración de la invitación de XV años estilo esmeralda.">Ver demostración
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="sample reveal reveal-d1">
+        <div class="sample-visual sv-romantica">
+          <span class="halo"></span>
+          <div class="mini">
+            <p class="m-label">Mis quince años</p>
+            <p class="m-name">Valentina</p>
+            <p class="m-orn">✦ ✦ ✦</p>
+          </div>
+        </div>
+        <div class="sample-body">
+          <h3>XV años · Romántica</h3>
+          <p>Suave, luminosa y delicada. Pensada para quinceañeras que sueñan con una estética rosa y dorada.</p>
+          <div class="tags"><span class="tag">Fotografías</span><span class="tag">Itinerario</span><span class="tag">Ubicación</span></div>
+          <a class="sample-link wa-link" href="#" data-wa data-msg="Hola, quiero ver la demostración de la invitación de XV años estilo romántica.">Ver demostración
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="sample reveal reveal-d2">
+        <div class="sample-visual sv-tarjeta">
+          <span class="halo"></span>
+          <div class="mini">
+            <p class="m-label">Estás invitado</p>
+            <p class="m-name">Tarjeta digital</p>
+            <p class="m-orn">✦ ✦ ✦</p>
+          </div>
+        </div>
+        <div class="sample-body">
+          <h3>Tarjeta digital interactiva</h3>
+          <p>Una alternativa sencilla y encantadora con la información esencial, ubicación y confirmación por WhatsApp.</p>
+          <div class="tags"><span class="tag">Esencial</span><span class="tag">Ubicación</span><span class="tag">RSVP</span></div>
+          <a class="sample-link wa-link" href="#" data-wa data-msg="Hola, quiero ver la demostración de la tarjeta digital interactiva.">Ver demostración
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+    </div>
+    <p class="samples-note reveal">Muy pronto: experiencias para bodas, baby showers y más celebraciones.</p>
+  </div>
+</section>
+
+<!-- ======= PROPUESTA DE VALOR ======= -->
+<section class="value">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker reveal">Por qué Primera Emoción</span>
+      <h2 class="reveal reveal-d1">Más que enviar los datos de un evento.</h2>
+    </div>
+    <div class="value-grid">
+      <div class="value-item reveal">
+        <span class="num">01</span>
+        <h3>Diseño con intención</h3>
+        <p>No solo cambiamos nombres y colores. Cuidamos el ritmo, las palabras, la música y cada detalle para que la invitación cuente tu historia.</p>
+      </div>
+      <div class="value-item reveal reveal-d1">
+        <span class="num">02</span>
+        <h3>Acompañamiento humano</h3>
+        <p>Te ayudamos a organizar la información, elegir opciones y tomar decisiones. Hablas con personas, no con formularios.</p>
+      </div>
+      <div class="value-item reveal reveal-d2">
+        <span class="num">03</span>
+        <h3>Todo más fácil para tus invitados</h3>
+        <p>Ubicación con mapa, evento en el calendario y confirmación de asistencia en un mismo lugar, desde cualquier celular.</p>
+      </div>
+    </div>
+    <p class="value-quote reveal">
+      <span class="q-orn">✦ ✦ ✦</span>
+      “La invitación es el primer momento que tus invitados vivirán de tu celebración.”
+    </p>
+  </div>
+</section>
+
+<!-- ======= CÓMO FUNCIONA ======= -->
+<section id="como-funciona">
+  <div class="wrap">
+    <div class="section-head center" style="margin-left:auto;margin-right:auto;text-align:center">
+      <span class="kicker reveal">Cómo funciona</span>
+      <h2 class="reveal reveal-d1">De tu idea a una experiencia lista para compartir.</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <span class="s-num">1</span>
+        <h3>Cuéntanos sobre tu evento</h3>
+        <p>Fecha, estilo, colores y lo que quieres transmitir. Con eso te recomendamos la mejor opción.</p>
+      </div>
+      <div class="step reveal reveal-d1">
+        <span class="s-num">2</span>
+        <h3>Reunimos tus recuerdos</h3>
+        <p>Fotografías, textos, música y los datos importantes de la celebración.</p>
+      </div>
+      <div class="step reveal reveal-d2">
+        <span class="s-num">3</span>
+        <h3>Creamos y ajustamos</h3>
+        <p>Recibes una primera versión y realizamos juntos las revisiones incluidas.</p>
+      </div>
+      <div class="step reveal reveal-d3">
+        <span class="s-num">4</span>
+        <h3>Comparte la emoción</h3>
+        <p>Entregamos tu enlace listo para enviar por WhatsApp, junto a una guía breve para compartirlo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= FORMATOS / EXPERIENCIAS ======= -->
+<section id="experiencias" class="formats">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker reveal">Experiencias</span>
+      <h2 class="reveal reveal-d1">Dos formas de comenzar la emoción.</h2>
+      <p class="reveal reveal-d2">Durante la conversación te ayudamos a elegir la opción ideal según tu evento, tus tiempos y tu presupuesto.</p>
+    </div>
+    <div class="formats-grid">
+      <article class="format format-main reveal">
+        <span class="format-badge">La experiencia completa</span>
+        <span class="f-fold"></span>
+        <span class="f-kicker">Invitación web personalizada</span>
+        <h3>Una página que se vive, no solo se lee.</h3>
+        <p>La experiencia principal de Primera Emoción: una invitación web creada a tu medida.</p>
+        <ul>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Música, fotografías y animaciones</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Cuenta regresiva e itinerario</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Ubicación con mapa y calendario</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Confirmación de asistencia</li>
+        </ul>
+        <a class="btn btn-light wa-link" href="#" data-wa data-msg="Hola, me interesa la invitación web personalizada de Primera Emoción.">Quiero esta experiencia</a>
+      </article>
+
+      <article class="format format-alt reveal reveal-d1">
+        <span class="f-fold"></span>
+        <span class="f-kicker">Tarjeta digital interactiva</span>
+        <h3>Sencilla, bonita y directa.</h3>
+        <p>Una alternativa ágil con lo esencial para invitar con estilo.</p>
+        <ul>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Diseño adaptado a tu celebración</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Información esencial del evento</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Ubicación con mapa</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Confirmación por WhatsApp</li>
+        </ul>
+        <a class="btn btn-outline wa-link" href="#" data-wa data-msg="Hola, me interesa la tarjeta digital interactiva de Primera Emoción.">Conocer esta opción</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======= PREGUNTAS ======= -->
+<section id="preguntas">
+  <div class="wrap">
+    <div class="section-head center" style="margin-left:auto;margin-right:auto;text-align:center">
+      <span class="kicker reveal">Preguntas frecuentes</span>
+      <h2 class="reveal reveal-d1">Lo que quieres saber antes de empezar.</h2>
+    </div>
+    <div class="faq-list reveal">
+      <details>
+        <summary>¿Cuánto tarda en estar lista mi invitación? <span class="chev">✦</span></summary>
+        <p class="a">Depende del formato y del nivel de personalización. Al conversar por WhatsApp te confirmamos el tiempo exacto según tu fecha; si tu evento está cerca, cuéntanos y buscamos la mejor solución.</p>
+      </details>
+      <details>
+        <summary>¿Puedo escoger los colores, el estilo y la música? <span class="chev">✦</span></summary>
+        <p class="a">Sí. La invitación se diseña a partir de tu temática, tus colores y la canción que elijas. Nuestro trabajo es que se sienta tuya, no una plantilla.</p>
+      </details>
+      <details>
+        <summary>¿Cómo confirman asistencia mis invitados? <span class="chev">✦</span></summary>
+        <p class="a">Con un botón dentro de la invitación que abre WhatsApp con un mensaje listo para enviar. Así recibes las confirmaciones de forma clara y sin complicaciones para nadie.</p>
+      </details>
+      <details>
+        <summary>¿Cuántas veces puedo compartir el enlace? <span class="chev">✦</span></summary>
+        <p class="a">Las que necesites. El enlace se comparte por WhatsApp, redes sociales o correo, y todos tus invitados pueden abrirlo desde cualquier celular.</p>
+      </details>
+      <details>
+        <summary>¿Puedo solicitar cambios? <span class="chev">✦</span></summary>
+        <p class="a">Sí. Cada proyecto incluye revisiones definidas para ajustar textos, fotografías y detalles antes de la entrega final. Te explicamos el alcance desde el inicio.</p>
+      </details>
+      <details>
+        <summary>¿Hacen invitaciones para otros eventos además de XV años? <span class="chev">✦</span></summary>
+        <p class="a">Sí. Aunque comenzamos con XV años, creamos experiencias para bodas, baby showers, cumpleaños y otras celebraciones. Cuéntanos tu evento y lo diseñamos.</p>
+      </details>
+      <details>
+        <summary>¿Cuánto tiempo permanece activa la invitación? <span class="chev">✦</span></summary>
+        <p class="a">Tu invitación permanece activa hasta después del evento, para que quede como recuerdo. El tiempo exacto se define según la opción que elijas.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ======= CIERRE ======= -->
+<section class="closing">
+  <div class="fold fold-1"></div>
+  <span class="spark-float" style="top:18%;left:12%;font-size:20px">✦</span>
+  <span class="spark-float" style="bottom:20%;right:14%;font-size:15px;animation-delay:2s">✧</span>
+  <div class="wrap">
+    <h2 class="reveal">Tu celebración puede comenzar desde hoy.</h2>
+    <p class="reveal reveal-d1">Cuéntanos qué estás preparando y creemos juntos la primera emoción de ese gran momento.</p>
+    <a class="btn btn-wa wa-link reveal reveal-d2" href="#" data-wa>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.9-1.4A10 10 0 1 0 12 2Zm5 13.6c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .2-3.2-.7-2.7-1.1-4.4-3.8-4.6-4-.1-.2-1.1-1.4-1.1-2.8 0-1.3.7-2 1-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.2.1.3 0 .5l-.4.6c-.1.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.2.5.1.7-.1l1-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3 0 .1 0 .7-.2 1.4Z"/></svg>
+      Quiero crear mi invitación
+    </a>
+  </div>
+</section>
+
+</main>
+
+<!-- ======= FOOTER ======= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <span class="brand-name" style="font-family:var(--display);font-size:20px">Primera Emoción</span>
+        <p>Invitaciones y experiencias digitales personalizadas. Todo gran momento comienza con una emoción.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Explora</h4>
+        <ul>
+          <li><a href="#muestras">Muestras</a></li>
+          <li><a href="#experiencias">Experiencias</a></li>
+          <li><a href="#como-funciona">Cómo funciona</a></li>
+          <li><a href="#preguntas">Preguntas</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a class="wa-link" href="#" data-wa>WhatsApp</a></li>
+          <li><a href="https://instagram.com/primeraemocion" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="mailto:somosprimeraemocion@gmail.com">somosprimeraemocion@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> Primera Emoción · Colombia</span>
+      <span>Hecho con ✦ para tus grandes momentos</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ======= WHATSAPP FLOTANTE ======= -->
+<a class="wa-float wa-link" href="#" data-wa aria-label="Hablar por WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.9-1.4A10 10 0 1 0 12 2Zm5 13.6c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .2-3.2-.7-2.7-1.1-4.4-3.8-4.6-4-.1-.2-1.1-1.4-1.1-2.8 0-1.3.7-2 1-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.2.1.3 0 .5l-.4.6c-.1.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.2.5.1.7-.1l1-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3 0 .1 0 .7-.2 1.4Z"/></svg>
+</a>
+
+<script>
+/* =====================================================
+   CONFIGURACIÓN — edita solo estas líneas
+   ===================================================== */
+var WHATSAPP_NUMERO = "573000000000"; // ← TU NÚMERO: código de país + número, sin "+" ni espacios
+var MENSAJE_DEFAULT = "Hola, quiero conocer las invitaciones digitales de Primera Emoción. Mi evento es un/una ___ y será el ___.";
+var FECHA_DEMO = "2026-10-18T19:00:00-05:00"; // fecha de la cuenta regresiva del teléfono de ejemplo
+/* ===================================================== */
+
+// Enlaces de WhatsApp
+document.querySelectorAll(".wa-link").forEach(function(el){
+  var msg = el.getAttribute("data-msg") || MENSAJE_DEFAULT;
+  el.setAttribute("href","https://wa.me/" + WHATSAPP_NUMERO + "?text=" + encodeURIComponent(msg));
+  el.setAttribute("target","_blank");
+  el.setAttribute("rel","noopener");
+});
+
+// Cuenta regresiva del teléfono demo
+(function(){
+  var target = new Date(FECHA_DEMO).getTime();
+  var els = {
+    d: document.querySelector('[data-cd="d"]'),
+    h: document.querySelector('[data-cd="h"]'),
+    m: document.querySelector('[data-cd="m"]'),
+    s: document.querySelector('[data-cd="s"]')
+  };
+  function pad(n){return n < 10 ? "0" + n : "" + n}
+  function tick(){
+    var diff = Math.max(0, target - Date.now());
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor(diff / 3600000) % 24;
+    var m = Math.floor(diff / 60000) % 60;
+    var s = Math.floor(diff / 1000) % 60;
+    els.d.textContent = d;
+    els.h.textContent = pad(h);
+    els.m.textContent = pad(m);
+    els.s.textContent = pad(s);
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
+// Animaciones al hacer scroll
+(function(){
+  if (!("IntersectionObserver" in window)) {
+    document.querySelectorAll(".reveal").forEach(function(el){el.classList.add("visible")});
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target); }
+    });
+  }, {threshold: .15});
+  document.querySelectorAll(".reveal").forEach(function(el){io.observe(el)});
+})();
+
+// Menú móvil
+(function(){
+  var burger = document.getElementById("burger");
+  var links = document.getElementById("navLinks");
+  burger.addEventListener("click", function(){
+    var open = links.classList.toggle("open");
+    burger.setAttribute("aria-expanded", open);
+  });
+  links.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click", function(){ links.classList.remove("open"); });
+  });
+})();
+
+// Año del footer
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Primera Emoción",
+  "description": "Invitaciones y experiencias digitales personalizadas para XV años, bodas y celebraciones en Colombia.",
+  "slogan": "Todo gran momento comienza con una emoción.",
+  "areaServed": "Colombia",
+  "email": "somosprimeraemocion@gmail.com",
+  "knowsLanguage": "es"
+}
+</script>
+
+</body>
+</html>
