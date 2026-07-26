@@ -11,7 +11,7 @@
 <meta property="og:locale" content="es_CO">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600&family=Great+Vibes&family=Baloo+2:wght@600;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240"><path fill="%23B86B6F" d="M80 178c39-12 72-38 92-77 8 18 5 39-8 56-18 23-49 39-84 48 11-10 15-19 0-27Z"/><path fill="%23C8A96B" d="M80 199c36-8 69-24 94-49 1 18-8 35-24 48-18 14-43 23-70 28 8-9 10-18 0-27Z"/><path fill="%234A233B" d="M42 214V32h48c49 0 78 26 78 64 0 30-19 52-50 67-12 6-25 10-39 13v38H42Zm37-148v78c13-3 25-8 35-15 13-9 20-20 20-34 0-18-16-29-42-29H79Z"/><path fill="%23C8A96B" d="m176 27 6 14 14 6-14 6-6 14-6-14-14-6 14-6 6-14Z"/></svg>'>
 <style>
 :root{
@@ -131,11 +131,88 @@ header{
   content:"";position:absolute;top:12px;left:50%;transform:translateX(-50%);
   width:90px;height:26px;background:#1d1a1c;border-radius:16px;z-index:3;
 }
-.screen img{
-  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  opacity:0;transition:opacity 1.1s ease;
+/* Portadas reales, reconstruidas en HTML para que se vean nítidas siempre */
+.tarjeta{
+  position:absolute;inset:0;opacity:0;transition:opacity 1.1s ease;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;overflow:hidden;padding:34px 18px 30px;
 }
-.screen img.on{opacity:1}
+.tarjeta.on{opacity:1}
+.tarjeta .fecha{margin-top:auto}
+.tarjeta .dia{font-family:"Playfair Display",serif;font-size:30px;line-height:1;margin:2px 0}
+.tarjeta .cuando,.tarjeta .mes{font-size:8px;letter-spacing:.24em;text-transform:uppercase}
+.tarjeta .desliza{font-size:7.5px;letter-spacing:.3em;text-transform:uppercase;margin-top:14px;opacity:.75}
+.marco{position:absolute;inset:14px;border-radius:22px;pointer-events:none}
+
+/* ── XV años ── */
+.t-xv{background:#06231a}
+.t-xv .foto{position:absolute;inset:0;background:url(/muestras/assets/hero-xv.webp) center/cover;opacity:.95}
+.t-xv .velo{position:absolute;inset:0;background:linear-gradient(180deg,#04130ecc 0%,#04130e40 42%,#04130ee6 100%)}
+.t-xv .marco{border:1px solid rgba(200,172,116,.55)}
+.t-xv > *{position:relative;z-index:2}
+.t-xv .bendicion{font-family:"Playfair Display",serif;font-style:italic;font-size:10px;color:#efe4cd;line-height:1.5}
+.t-xv .mis{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:#efe4cd;margin-top:10px}
+.t-xv .nombre{
+  font-family:"Great Vibes",cursive;font-size:52px;line-height:1.25;margin:-2px 0 4px;
+  background:linear-gradient(100deg,#c8ac74 12%,#f6e6c2 40%,#c8ac74 62%,#f0dcb0 82%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.t-xv .orn{color:#c8ac74;font-size:9px;letter-spacing:.5em}
+.t-xv .fecha,.t-xv .desliza{color:#efe4cd}
+.t-xv .dia{color:#fff}
+
+/* ── Baby shower ── */
+.t-baby{background:linear-gradient(180deg,#f4c3d3 0%,#fbe3ec 58%,#fdf6f1 100%)}
+.t-baby .marco{border:1.5px dashed rgba(226,121,157,.45)}
+.t-baby .oso{
+  width:52px;height:46px;border-radius:50% 50% 46% 46%;background:#c99a6a;position:relative;margin-bottom:12px;
+}
+.t-baby .oso::before,.t-baby .oso::after{
+  content:"";position:absolute;top:-7px;width:20px;height:20px;border-radius:50%;background:#c99a6a;
+}
+.t-baby .oso::before{left:-3px}.t-baby .oso::after{right:-3px}
+.t-baby .hocico{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);width:26px;height:19px;border-radius:50%;background:#f0d8b6;z-index:2}
+.t-baby .globo{
+  position:absolute;top:-24px;right:-20px;width:22px;height:27px;
+  border-radius:50% 50% 48% 48%;background:radial-gradient(circle at 34% 28%,#f5b4c8,#e2799d 70%);
+}
+.t-baby .globo::after{content:"";position:absolute;top:100%;left:50%;width:1px;height:26px;background:rgba(182,83,123,.5)}
+.t-baby .chip{
+  padding:4px 12px;border-radius:999px;background:rgba(226,121,157,.18);
+  border:1px solid rgba(226,121,157,.5);font-family:"Baloo 2",sans-serif;font-weight:600;
+  font-size:9px;color:#b6537b;
+}
+.t-baby .mis{font-family:"Baloo 2",sans-serif;font-weight:700;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#e2799d;margin-top:10px}
+.t-baby .nombre{
+  font-family:"Great Vibes",cursive;font-size:50px;line-height:1.25;margin:-4px 0 2px;
+  background:linear-gradient(100deg,#b6537b 15%,#f0a3bc 40%,#cf6f92 62%,#b6537b 88%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.t-baby .fecha,.t-baby .desliza{color:#a35674}
+.t-baby .dia{color:#8d2f52}
+.t-baby .nube{position:absolute;background:#fff;border-radius:999px;opacity:.85}
+.t-baby .n1{width:44px;height:14px;top:38px;left:16px}
+.t-baby .n2{width:52px;height:16px;top:62px;right:12px}
+.t-baby .n3{width:40px;height:13px;bottom:96px;left:22px}
+
+/* ── Revelación ── */
+.t-rev{background:linear-gradient(108deg,#f7cede 0%,#f7cede 49%,#bcdcf0 51%,#bcdcf0 100%)}
+.t-rev .marco{border:1.5px dashed rgba(168,121,164,.45)}
+.t-rev .globo{
+  width:38px;height:46px;border-radius:50% 50% 46% 46%;position:relative;margin-bottom:14px;
+  background:linear-gradient(100deg,#e2799d 0 50%,#6fa8dc 50% 100%);
+  display:flex;align-items:center;justify-content:center;
+  font-family:"Baloo 2",sans-serif;font-weight:700;font-size:20px;color:#fff;
+}
+.t-rev .globo::after{content:"";position:absolute;top:100%;left:50%;width:1px;height:22px;background:rgba(123,86,112,.45)}
+.t-rev .mis{font-size:8.5px;letter-spacing:.28em;text-transform:uppercase;color:#7b5670;font-weight:600}
+.t-rev .secreto{font-family:"Great Vibes",cursive;font-size:24px;color:#5d4a58;margin:4px 0 0}
+.t-rev .pregunta{font-family:"Baloo 2",sans-serif;font-weight:700;font-size:31px;line-height:1.2;margin:0}
+.t-rev .pregunta .n{color:#4a7fa5}.t-rev .pregunta .o{color:#8d7683;font-size:20px}.t-rev .pregunta .a{color:#b6537b}
+.t-rev .departe{font-size:7.5px;letter-spacing:.28em;text-transform:uppercase;color:#a879a4;margin-top:6px}
+.t-rev .nombre{font-family:"Great Vibes",cursive;font-size:30px;line-height:1.3;color:#7b5670;margin:-2px 0 0}
+.t-rev .fecha,.t-rev .desliza{color:#6a5560}
+.t-rev .dia{color:#4c3b48}
 .puntos{
   position:absolute;bottom:12px;left:50%;transform:translateX(-50%);
   display:flex;gap:6px;z-index:3;
@@ -388,9 +465,52 @@ footer{background:var(--ciruela-oscuro);color:rgba(248,243,237,.7);padding:56px 
     <div class="phone-zone reveal reveal-d2">
       <a class="phone" href="/muestras/" aria-label="Ver nuestras invitaciones digitales">
         <div class="screen" id="carrusel">
-          <img class="on" src="/muestras/assets/hero-xv.jpg" alt="Invitación digital de XV años en verde esmeralda y dorado" width="600" height="1120" fetchpriority="high">
-          <img src="/muestras/assets/hero-baby.jpg" alt="Invitación digital de baby shower en tonos rosados" width="600" height="1120" loading="lazy">
-          <img src="/muestras/assets/hero-revelacion.jpg" alt="Invitación digital de revelación de género" width="600" height="1120" loading="lazy">
+
+          <div class="tarjeta t-xv on" role="img" aria-label="Invitación de XV años en verde esmeralda y dorado">
+            <span class="foto"></span><span class="velo"></span><span class="marco"></span>
+            <p class="bendicion">Con la bendición de Dios<br>y el amor de mi familia</p>
+            <p class="mis">Mis quince años</p>
+            <p class="nombre">Valeria</p>
+            <p class="orn">✦</p>
+            <div class="fecha">
+              <p class="cuando">Sábado</p>
+              <p class="dia">21</p>
+              <p class="mes">Noviembre · 2026</p>
+            </div>
+            <p class="desliza">Desliza ⌄</p>
+          </div>
+
+          <div class="tarjeta t-baby" role="img" aria-label="Invitación de baby shower en tonos rosados">
+            <span class="marco"></span>
+            <span class="nube n1"></span><span class="nube n2"></span><span class="nube n3"></span>
+            <div class="oso"><span class="hocico"></span><span class="globo"></span></div>
+            <p class="chip">¡Es una niña!</p>
+            <p class="mis">Baby shower</p>
+            <p class="nombre">Emilia</p>
+            <div class="fecha">
+              <p class="cuando">Sábado</p>
+              <p class="dia">17</p>
+              <p class="mes">Octubre · 2026</p>
+            </div>
+            <p class="desliza">Desliza ⌄</p>
+          </div>
+
+          <div class="tarjeta t-rev" role="img" aria-label="Invitación de revelación de género">
+            <span class="marco"></span>
+            <div class="globo">?</div>
+            <p class="mis">Revelación de género</p>
+            <p class="secreto">¡Te tenemos un secreto!</p>
+            <p class="pregunta"><span class="n">¿Niño</span> <span class="o">o</span> <span class="a">Niña?</span></p>
+            <p class="departe">De parte de</p>
+            <p class="nombre">Sofía y Andrés</p>
+            <div class="fecha">
+              <p class="cuando">Sábado</p>
+              <p class="dia">07</p>
+              <p class="mes">Noviembre · 2026</p>
+            </div>
+            <p class="desliza">Desliza ⌄</p>
+          </div>
+
           <div class="puntos" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
         </div>
       </a>
@@ -722,7 +842,7 @@ document.querySelectorAll(".wa-link").forEach(function(el){
 (function(){
   var cont = document.getElementById("carrusel");
   if (!cont) return;
-  var imgs = cont.querySelectorAll("img");
+  var imgs = cont.querySelectorAll(".tarjeta");
   var puntos = cont.querySelectorAll(".puntos i");
   if (imgs.length < 2) return;
   if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
