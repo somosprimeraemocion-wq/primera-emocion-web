@@ -1,19 +1,36 @@
 # Primera Emoción — Sitio web
 
-Home de [Primera Emoción](https://primeraemocion.com) — invitaciones y experiencias digitales personalizadas.
+Home de **Primera Emoción**: invitaciones y experiencias digitales personalizadas para XV años, bodas y celebraciones.
 
-Sitio estático de un solo archivo, sin dependencias ni proceso de build.
+🌐 [primeraemocion.com](https://primeraemocion.com)
 
-## Estructura
+## Sobre el sitio
 
-- `index.html` — la home completa (HTML, CSS y JS en un solo archivo)
-- `despliegue.md` — guía de configuración y publicación
-- `estructura-y-textos-v1.md` — estructura y textos de referencia
+Sitio estático de un solo archivo. Sin dependencias, sin framework y sin proceso de compilación: `index.html` contiene el HTML, el CSS y el JavaScript.
 
-## Antes de publicar
+- `index.html` — la home completa
+- `CNAME` — dominio propio para GitHub Pages
 
-Edita el bloque `CONFIGURACIÓN` dentro de `index.html` y reemplaza `WHATSAPP_NUMERO` por el número real.
+## Desarrollo
+
+Abre `index.html` en cualquier navegador. No hace falta instalar nada ni levantar un servidor.
+
+## Configuración
+
+Dentro del bloque `<script>`, al final del archivo:
+
+```js
+var WHATSAPP_NUMERO = "573000000000";   // código de país + número, sin "+" ni espacios
+var MENSAJE_DEFAULT = "...";            // mensaje prellenado al abrir WhatsApp
+var FECHA_DEMO      = "2026-10-18...";  // cuenta regresiva de la invitación de ejemplo
+```
+
+Los enlaces de las muestras usan el atributo `data-msg` para enviar un mensaje distinto según la sección desde la que se abre WhatsApp.
 
 ## Despliegue
 
-Vercel · Framework: Other · sin build command.
+GitHub Pages sobre la rama `master`. Cada `git push` republica el sitio automáticamente en segundos.
+
+---
+
+*Todo gran momento comienza con una emoción.*
