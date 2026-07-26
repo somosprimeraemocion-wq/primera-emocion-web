@@ -310,4 +310,39 @@ const displayName = "Sofía y Andrés";
 					"noopener,noreferrer",
 				);
 			});
-		})();</script> </body> </html> 
+		})();</script> <script>
+/* Personalizar el nombre desde la URL:  ?n=Valentina
+   Restaura el comportamiento original de las tarjetas dinámicas. */
+(function(){
+  var POR_DEFECTO = "Sofía y Andrés";
+  var q = new URLSearchParams(location.search).get("n");
+  if (!q) return;
+  var menores = ["y","de","del","la","los","las","e"];
+  var nuevo = q.replace(/[-+_/]/g, " ").replace(/\s+/g, " ").trim().slice(0, 30);
+  if (!nuevo) return;
+  nuevo = nuevo.split(" ").map(function(p, i){
+    var b = p.toLocaleLowerCase("es");
+    if (i > 0 && menores.indexOf(b) !== -1) return b;
+    return b.charAt(0).toLocaleUpperCase("es") + b.slice(1);
+  }).join(" ");
+  if (nuevo === POR_DEFECTO) return;
+
+  // 1. texto visible
+  var it = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+  var n, pendientes = [];
+  while ((n = it.nextNode())) if (n.nodeValue.indexOf(POR_DEFECTO) !== -1) pendientes.push(n);
+  pendientes.forEach(function(t){ t.nodeValue = t.nodeValue.split(POR_DEFECTO).join(nuevo); });
+
+  // 2. título de la pestaña
+  document.title = document.title.split(POR_DEFECTO).join(nuevo);
+
+  // 3. enlaces con el nombre codificado (calendario, WhatsApp)
+  var vE = encodeURIComponent(POR_DEFECTO), nE = encodeURIComponent(nuevo);
+  document.querySelectorAll("a[href]").forEach(function(a){
+    var h = a.getAttribute("href");
+    if (h && h.indexOf(vE) !== -1) a.setAttribute("href", h.split(vE).join(nE));
+    else if (h && h.indexOf(POR_DEFECTO) !== -1) a.setAttribute("href", h.split(POR_DEFECTO).join(nuevo));
+  });
+})();
+</script>
+</body> </html> 
