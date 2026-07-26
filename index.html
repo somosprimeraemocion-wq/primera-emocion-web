@@ -124,44 +124,25 @@ header{
 }
 @keyframes floaty{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-12px) rotate(-1.5deg)}}
 .screen{
-  border-radius:34px;overflow:hidden;background:linear-gradient(165deg,#fdf6f3 0%,#f6e3de 55%,#efd3cd 100%);
-  position:relative;padding:46px 22px 30px;text-align:center;min-height:560px;
-  display:flex;flex-direction:column;align-items:center;
+  border-radius:34px;overflow:hidden;background:#f6e3de;
+  position:relative;height:560px;
 }
 .screen::before{
   content:"";position:absolute;top:12px;left:50%;transform:translateX(-50%);
-  width:90px;height:26px;background:#1d1a1c;border-radius:16px;
+  width:90px;height:26px;background:#1d1a1c;border-radius:16px;z-index:3;
 }
-.screen .layer-a,.screen .layer-b{position:absolute;border-radius:50% 50% 0 0/100% 100% 0 0}
-.layer-a{width:420px;height:420px;background:var(--ciruela);opacity:.9;bottom:-260px;right:-160px;transform:rotate(-12deg)}
-.layer-b{width:380px;height:380px;background:var(--rosa);opacity:.75;bottom:-250px;left:-150px;transform:rotate(14deg)}
-.inv-label{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--rosa);font-weight:600;margin-bottom:10px}
-.inv-name{font-family:var(--display);font-size:40px;color:var(--ciruela);line-height:1.05}
-.inv-name span{display:block;font-size:16px;font-style:italic;color:var(--rosa);margin-bottom:6px}
-.inv-orn{color:var(--champana);font-size:14px;letter-spacing:.5em;margin:14px 0}
-.inv-photo{
-  width:150px;height:190px;border-radius:80px 80px 80px 80px/110px 110px 60px 60px;
-  border:1.5px solid var(--champana);
-  background:radial-gradient(circle at 50% 32%,#e9c8be 0%,#dba8a0 45%,#c98d8c 100%);
-  position:relative;overflow:hidden;margin-bottom:16px;
+.screen img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;transition:opacity 1.1s ease;
 }
-.inv-photo::after{
-  content:"";position:absolute;inset:0;
-  background:radial-gradient(circle at 50% 30%,rgba(255,255,255,.5),transparent 55%);
+.screen img.on{opacity:1}
+.puntos{
+  position:absolute;bottom:12px;left:50%;transform:translateX(-50%);
+  display:flex;gap:6px;z-index:3;
 }
-.inv-date{font-family:var(--display);font-size:17px;color:var(--tinta);letter-spacing:.12em}
-.countdown{display:flex;gap:8px;margin-top:16px;position:relative;z-index:2}
-.cd{
-  background:rgba(255,255,255,.75);border:1px solid rgba(200,169,107,.5);
-  border-radius:10px;padding:7px 0;width:52px;
-}
-.cd b{display:block;font-family:var(--display);font-size:18px;color:var(--ciruela);line-height:1}
-.cd small{font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:#8a7580}
-.inv-cta{
-  margin-top:18px;position:relative;z-index:2;
-  background:var(--ciruela);color:var(--marfil);font-size:11px;font-weight:600;
-  letter-spacing:.08em;padding:10px 22px;border-radius:999px;
-}
+.puntos i{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.45);transition:background .4s}
+.puntos i.on{background:rgba(255,255,255,.95)}
+
 .phone-badge{
   position:absolute;z-index:3;background:#fff;border-radius:14px;box-shadow:var(--shadow);
   padding:12px 16px;font-size:12.5px;font-weight:500;display:flex;align-items:center;gap:10px;
@@ -405,24 +386,14 @@ footer{background:var(--ciruela-oscuro);color:rgba(248,243,237,.7);padding:56px 
     </div>
 
     <div class="phone-zone reveal reveal-d2">
-      <div class="phone" aria-label="Ejemplo de invitación digital">
-        <div class="screen">
-          <div class="layer-a"></div>
-          <div class="layer-b"></div>
-          <p class="inv-label">Te invito a celebrar</p>
-          <p class="inv-name"><span>Mis XV</span>Valentina</p>
-          <p class="inv-orn">✦ ✧ ✦</p>
-          <div class="inv-photo"></div>
-          <p class="inv-date">18 · 10 · 2026</p>
-          <div class="countdown" id="countdown" aria-label="Cuenta regresiva del evento">
-            <div class="cd"><b data-cd="d">—</b><small>días</small></div>
-            <div class="cd"><b data-cd="h">—</b><small>horas</small></div>
-            <div class="cd"><b data-cd="m">—</b><small>min</small></div>
-            <div class="cd"><b data-cd="s">—</b><small>seg</small></div>
-          </div>
-          <span class="inv-cta">Confirmar asistencia</span>
+      <a class="phone" href="/muestras/" aria-label="Ver nuestras invitaciones digitales">
+        <div class="screen" id="carrusel">
+          <img class="on" src="/muestras/assets/hero-xv.jpg" alt="Invitación digital de XV años en verde esmeralda y dorado" width="600" height="1120" fetchpriority="high">
+          <img src="/muestras/assets/hero-baby.jpg" alt="Invitación digital de baby shower en tonos rosados" width="600" height="1120" loading="lazy">
+          <img src="/muestras/assets/hero-revelacion.jpg" alt="Invitación digital de revelación de género" width="600" height="1120" loading="lazy">
+          <div class="puntos" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
         </div>
-      </div>
+      </a>
       <div class="phone-badge badge-music">
         <span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
         Con tu canción favorita
@@ -737,7 +708,6 @@ footer{background:var(--ciruela-oscuro);color:rgba(248,243,237,.7);padding:56px 
    ===================================================== */
 var WHATSAPP_NUMERO = "573000000000"; // ← TU NÚMERO: código de país + número, sin "+" ni espacios
 var MENSAJE_DEFAULT = "Hola, quiero conocer las invitaciones digitales de Primera Emoción. Mi evento es un/una ___ y será el ___.";
-var FECHA_DEMO = "2026-10-18T19:00:00-05:00"; // fecha de la cuenta regresiva del teléfono de ejemplo
 /* ===================================================== */
 
 // Enlaces de WhatsApp
@@ -748,29 +718,20 @@ document.querySelectorAll(".wa-link").forEach(function(el){
   el.setAttribute("rel","noopener");
 });
 
-// Cuenta regresiva del teléfono demo
+// Carrusel de invitaciones reales dentro del teléfono
 (function(){
-  var target = new Date(FECHA_DEMO).getTime();
-  var els = {
-    d: document.querySelector('[data-cd="d"]'),
-    h: document.querySelector('[data-cd="h"]'),
-    m: document.querySelector('[data-cd="m"]'),
-    s: document.querySelector('[data-cd="s"]')
-  };
-  function pad(n){return n < 10 ? "0" + n : "" + n}
-  function tick(){
-    var diff = Math.max(0, target - Date.now());
-    var d = Math.floor(diff / 86400000);
-    var h = Math.floor(diff / 3600000) % 24;
-    var m = Math.floor(diff / 60000) % 60;
-    var s = Math.floor(diff / 1000) % 60;
-    els.d.textContent = d;
-    els.h.textContent = pad(h);
-    els.m.textContent = pad(m);
-    els.s.textContent = pad(s);
-  }
-  tick();
-  setInterval(tick, 1000);
+  var cont = document.getElementById("carrusel");
+  if (!cont) return;
+  var imgs = cont.querySelectorAll("img");
+  var puntos = cont.querySelectorAll(".puntos i");
+  if (imgs.length < 2) return;
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var i = 0;
+  setInterval(function(){
+    imgs[i].classList.remove("on"); puntos[i].classList.remove("on");
+    i = (i + 1) % imgs.length;
+    imgs[i].classList.add("on"); puntos[i].classList.add("on");
+  }, 4200);
 })();
 
 // Animaciones al hacer scroll
