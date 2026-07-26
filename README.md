@@ -20,7 +20,7 @@ Abre `index.html` en cualquier navegador. No hace falta instalar nada ni levanta
 Dentro del bloque `<script>`, al final del archivo:
 
 ```js
-var WHATSAPP_NUMERO = "573000000000";   // código de país + número, sin "+" ni espacios
+var WHATSAPP_NUMERO = "573337582722";   // código de país + número, sin "+" ni espacios
 var MENSAJE_DEFAULT = "...";            // mensaje prellenado al abrir WhatsApp
 var FECHA_DEMO      = "2026-10-18...";  // cuenta regresiva de la invitación de ejemplo
 ```
