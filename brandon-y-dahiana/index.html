@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#3b4526">
+<meta name="robots" content="noindex, nofollow">
+<title>Brandon &amp; Dahiana | Nuestra boda</title>
+<meta name="description" content="Invitación digital a la boda de Brandon y Dahiana. 20 de septiembre, 2:00 p.m., San Felipe Picnic, Calle 36 #80-22, Laureles, Medellín.">
+<link rel="canonical" href="https://primeraemocion.com/brandon-y-dahiana/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Primera Emoción">
+<meta property="og:title" content="Brandon &amp; Dahiana · Nos casamos">
+<meta property="og:description" content="Domingo 20 de septiembre · 2:00 p.m. · San Felipe Picnic, Laureles. Confirma tu asistencia y elige tu plato.">
+<meta property="og:url" content="https://primeraemocion.com/brandon-y-dahiana/">
+<meta property="og:image" content="https://primeraemocion.com/brandon-y-dahiana/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Brandon &amp; Dahiana · Nos casamos">
+<meta name="twitter:image" content="https://primeraemocion.com/brandon-y-dahiana/preview.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Great+Vibes&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --olivo-hondo:#2f3a1f;
+    --olivo:#5a6b3b;
+    --olivo-claro:#8a9866;
+    --salvia:#b9c29f;
+    --nude:#e3cdb8;
+    --nude-hondo:#c9a98d;
+    --arena:#f6efe6;
+    --crema:#fbf7f1;
+    --tinta:#2a2b21;
+    --texto:#4a5240;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;background:var(--olivo-hondo)}
+  body{
+    margin:0;
+    font-family:Outfit,system-ui,sans-serif;
+    color:var(--texto);
+    background:var(--crema);
+    -webkit-font-smoothing:antialiased;
+  }
+  body.locked{overflow:hidden;height:100dvh}
+  img,svg{display:block;max-width:100%}
+
+  /* ---------- Sobre de entrada ---------- */
+  .stage{
+    position:fixed;inset:0;z-index:60;
+    display:grid;place-items:center;
+    background:radial-gradient(120% 90% at 50% 0%,#48582f,#232b18 65%);
+    transition:opacity .9s ease,visibility .9s ease;
+  }
+  .stage.is-gone{opacity:0;visibility:hidden;pointer-events:none}
+  .stage-content{display:grid;justify-items:center;gap:1.6rem;padding:1.2rem;text-align:center}
+  .stage-kicker{
+    margin:0;font-family:"Cormorant Garamond",serif;font-style:italic;
+    font-size:clamp(1.1rem,4.4vw,1.45rem);letter-spacing:.06em;color:var(--nude);
+    animation:fade-up 1.1s ease both;
+  }
+  .stage-hint{
+    margin:0;font-size:.68rem;letter-spacing:.32em;text-transform:uppercase;
+    color:rgba(227,205,184,.62);animation:fade-up 1.1s .4s ease both;
+  }
+  .envelope{border:0;background:none;padding:0;cursor:pointer;perspective:900px;animation:fade-up 1.1s .2s ease both;-webkit-tap-highlight-color:transparent}
+  .envelope-body{position:relative;display:block;width:min(76vw,310px);aspect-ratio:320/215;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.22,1,.36,1)}
+  .envelope:hover .envelope-body{transform:translateY(-6px)}
+  .env-back,.env-front,.env-flap{position:absolute;inset:0;border-radius:10px}
+  .env-back{background:linear-gradient(160deg,#5f7040,#3c4826);box-shadow:inset 0 0 0 1px rgba(227,205,184,.35)}
+  .env-letter{
+    position:absolute;inset:7% 6%;display:grid;place-content:center;gap:.2rem;text-align:center;border-radius:6px;
+    background:linear-gradient(170deg,#fbf7f1,#f0e6d9);
+    box-shadow:inset 0 0 0 1px rgba(201,169,141,.55),0 4px 16px rgba(0,0,0,.25);
+    transition:transform 1s .35s cubic-bezier(.22,1,.36,1);
+  }
+  .env-letter small{font-size:.56rem;letter-spacing:.34em;text-transform:uppercase;color:var(--nude-hondo)}
+  .env-letter strong{font-family:"Great Vibes",cursive;font-weight:400;font-size:1.35rem;line-height:1.2;white-space:nowrap;color:var(--olivo-hondo)}
+  .env-front{
+    background:linear-gradient(to bottom,#54653a,#465429);
+    clip-path:polygon(0 0,50% 52%,100% 0,100% 100%,0 100%);
+    box-shadow:inset 0 8px 16px rgba(0,0,0,.16);
+  }
+  .env-flap{
+    bottom:auto;height:52%;background:linear-gradient(to bottom,#63754a 48%,#4b5a30);
+    clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;
+    transition:transform .7s cubic-bezier(.55,0,.3,1);backface-visibility:hidden;
+  }
+  .env-seal{
+    position:absolute;left:50%;top:46%;width:3.2rem;height:3.2rem;transform:translate(-50%,-50%);
+    display:grid;place-items:center;border-radius:50%;
+    background:radial-gradient(circle at 32% 28%,#f2ddc9,#d9b899 48%,#b78f6d);
+    box-shadow:0 3px 10px rgba(0,0,0,.35),inset 0 0 0 2px rgba(255,250,244,.5),inset 0 0 0 6px rgba(150,113,80,.28);
+    transition:transform .5s ease,opacity .5s ease;animation:seal-pulse 2.8s ease-in-out infinite;
+  }
+  .env-seal span{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:.95rem;letter-spacing:.06em;color:#5a4227}
+  @keyframes seal-pulse{
+    0%,100%{box-shadow:0 3px 10px rgba(0,0,0,.35),inset 0 0 0 2px rgba(255,250,244,.5),inset 0 0 0 6px rgba(150,113,80,.28),0 0 0 0 rgba(227,205,184,.45)}
+    50%{box-shadow:0 3px 10px rgba(0,0,0,.35),inset 0 0 0 2px rgba(255,250,244,.5),inset 0 0 0 6px rgba(150,113,80,.28),0 0 0 14px rgba(227,205,184,0)}
+  }
+  .stage.is-opening .env-flap{transform:rotateX(180deg)}
+  .stage.is-opening .env-seal{transform:translate(-50%,-50%) scale(0);opacity:0}
+  .stage.is-opening .env-letter{transform:translateY(-58%) scale(1.05)}
+  .stage.is-opening .stage-hint,.stage.is-opening .stage-kicker{opacity:0;transition:opacity .5s ease}
+  @keyframes fade-up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+  /* ---------- Estructura ---------- */
+  section{position:relative;padding:4.6rem 1.4rem;overflow:hidden}
+  .wrap{width:min(100%,430px);margin:0 auto;text-align:center}
+  .fx{opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform .9s cubic-bezier(.22,1,.36,1)}
+  .fx.on{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.fx{opacity:1;transform:none;transition:none}}
+
+  .kicker{margin:0;font-size:.64rem;letter-spacing:.36em;text-transform:uppercase;color:var(--nude-hondo)}
+  .title{margin:.55rem 0 0;font-family:"Great Vibes",cursive;font-weight:400;font-size:clamp(2.3rem,10vw,3rem);line-height:1.2;color:var(--olivo-hondo)}
+  .body-text{margin:1rem auto 0;max-width:32ch;font-family:"Cormorant Garamond",serif;font-size:1.12rem;line-height:1.65;color:var(--texto)}
+  .rule{display:flex;align-items:center;gap:.75rem;width:min(72%,240px);margin:1.4rem auto;color:var(--nude-hondo);font-size:.8rem}
+  .rule::before,.rule::after{content:"";flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(201,169,141,.85),transparent)}
+  .leaf{width:26px;height:26px;margin:0 auto;color:var(--olivo-claro)}
+
+  /* ---------- Portada ---------- */
+  .cover{
+    min-height:100dvh;display:grid;place-items:center;
+    background:radial-gradient(115% 80% at 50% 0%,#54653a,#2b3419 70%);
+    color:var(--arena);
+  }
+  .cover::before,.cover::after{
+    content:"";position:absolute;width:min(70vw,300px);height:min(70vw,300px);
+    background:radial-gradient(circle,rgba(185,194,159,.22),transparent 68%);pointer-events:none;
+  }
+  .cover::before{top:-14%;left:-22%}
+  .cover::after{bottom:-16%;right:-24%}
+  .cover-frame{position:absolute;inset:14px;border:1px solid rgba(227,205,184,.32);border-radius:6px;pointer-events:none}
+  .cover-kicker{margin:0;font-size:.66rem;letter-spacing:.42em;text-transform:uppercase;color:rgba(227,205,184,.85)}
+  .cover-names{
+    margin:.7rem 0 .2rem;font-family:"Great Vibes",cursive;font-weight:400;
+    font-size:clamp(3rem,15vw,4.4rem);line-height:1.22;color:var(--arena);
+    text-shadow:0 2px 18px rgba(0,0,0,.35);
+  }
+  .cover-amp{display:block;font-size:.5em;color:var(--nude);margin:.1rem 0}
+  .cover-date{margin:1.5rem 0 0;display:grid;gap:.35rem}
+  .cover-date span{font-size:.66rem;letter-spacing:.36em;text-transform:uppercase;color:rgba(246,239,230,.8)}
+  .cover-date strong{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:2.4rem;line-height:1;color:var(--arena)}
+  .scroll-hint{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 1.4rem);left:50%;transform:translateX(-50%);display:grid;justify-items:center;gap:.45rem;color:rgba(227,205,184,.7);font-size:.6rem;letter-spacing:.3em;text-transform:uppercase}
+  .scroll-hint i{width:1px;height:26px;background:linear-gradient(to bottom,rgba(227,205,184,.8),transparent);animation:hint 2.2s ease-in-out infinite}
+  @keyframes hint{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+
+  /* ---------- Secciones claras / oscuras ---------- */
+  .light{background:linear-gradient(175deg,var(--crema),var(--arena))}
+  .nude{background:linear-gradient(175deg,#f3e5d8,#ecd9c7)}
+  .dark{background:radial-gradient(120% 80% at 50% 110%,rgba(138,152,102,.28),transparent 60%),linear-gradient(165deg,#42502c,#2b3419);color:var(--arena)}
+  .dark .kicker{color:var(--nude)}
+  .dark .title{color:var(--arena)}
+  .dark .body-text{color:rgba(246,239,230,.86)}
+  .dark .rule{color:var(--nude)}
+  .dark .rule::before,.dark .rule::after{background:linear-gradient(to right,transparent,rgba(227,205,184,.55),transparent)}
+
+  /* ---------- Cuenta regresiva ---------- */
+  .countdown{display:flex;justify-content:center;gap:.55rem;margin-top:1.6rem}
+  .countdown div{display:grid;gap:.25rem;place-items:center;min-width:4.1rem;padding:.85rem .4rem .65rem;border-radius:14px;background:rgba(251,247,241,.08);border:1px solid rgba(227,205,184,.3)}
+  .countdown strong{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:1.9rem;line-height:1;color:var(--arena)}
+  .countdown span{font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(246,239,230,.7)}
+
+  /* ---------- Datos ---------- */
+  .medal{display:grid;place-content:center;gap:.15rem;width:6.6rem;height:6.6rem;margin:1.4rem auto 0;border-radius:50%;border:1px solid rgba(201,169,141,.75);box-shadow:0 0 0 6px rgba(201,169,141,.14)}
+  .medal span{font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--nude-hondo)}
+  .medal strong{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:2.1rem;line-height:1;color:var(--olivo-hondo)}
+  .place-name{margin:.9rem 0 .2rem;font-family:"Cormorant Garamond",serif;font-weight:600;font-size:1.55rem;color:var(--olivo-hondo)}
+  .dark .place-name{color:var(--arena)}
+  .place-sub{margin:0;font-size:.9rem;letter-spacing:.04em}
+
+  /* ---------- Botones ---------- */
+  .btn{
+    display:inline-block;margin-top:1.5rem;padding:.8rem 1.7rem;border-radius:999px;border:0;
+    font-family:Outfit,sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+    text-decoration:none;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,background .25s ease;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn-olivo{background:linear-gradient(120deg,#5a6b3b,#7d8f58);color:#f8f4ec;box-shadow:0 10px 24px rgba(47,58,31,.3)}
+  .btn-nude{background:linear-gradient(120deg,#d9bda2,#ecd8c4);color:#4a3826;box-shadow:0 10px 24px rgba(150,113,80,.28)}
+  .btn-linea{background:transparent;border:1px solid rgba(201,169,141,.75);color:var(--nude-hondo)}
+  .dark .btn-linea{border-color:rgba(227,205,184,.6);color:var(--nude)}
+  .btn-wa{background:#25d366;color:#06301a;box-shadow:0 10px 26px rgba(37,211,102,.32);width:100%;font-size:.82rem;padding:.95rem 1rem}
+  .btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+
+  /* ---------- Dress code ---------- */
+  .swatches{display:flex;justify-content:center;gap:.8rem;margin-top:1.3rem}
+  .swatches figure{margin:0;display:grid;gap:.5rem;justify-items:center}
+  .swatches i{width:2.6rem;height:2.6rem;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 1px rgba(255,255,255,.35),0 6px 14px rgba(0,0,0,.18)}
+  .swatches figcaption{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(246,239,230,.75)}
+
+  /* ---------- Menú ---------- */
+  .platos{display:grid;gap:1rem;margin-top:1.7rem;text-align:left}
+  .plato{
+    padding:1.15rem 1.2rem;border-radius:18px;background:rgba(251,247,241,.9);
+    border:1px solid rgba(201,169,141,.45);box-shadow:0 10px 26px rgba(90,107,59,.08);
+  }
+  .plato h3{margin:0;font-family:"Cormorant Garamond",serif;font-weight:600;font-size:1.22rem;color:var(--olivo-hondo);display:flex;gap:.5rem;align-items:baseline}
+  .plato p{margin:.45rem 0 0;font-family:"Cormorant Garamond",serif;font-size:1.02rem;line-height:1.55;color:var(--texto)}
+  .plato .con{margin:.5rem 0 0;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--nude-hondo)}
+
+  /* ---------- Formulario ---------- */
+  .form{margin-top:1.8rem;text-align:left;display:grid;gap:1rem}
+  .campo{display:grid;gap:.4rem}
+  .campo label,.grupo-label{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(246,239,230,.78)}
+  .form input[type=text],.form input[type=tel],.form select,.form textarea{
+    width:100%;padding:.8rem .95rem;border-radius:12px;border:1px solid rgba(227,205,184,.38);
+    background:rgba(251,247,241,.95);font-family:Outfit,sans-serif;font-size:.92rem;color:var(--tinta);
+  }
+  .form textarea{min-height:76px;resize:vertical}
+  .form input:focus,.form select:focus,.form textarea:focus{outline:2px solid rgba(227,205,184,.7);outline-offset:1px}
+  .asistencia{display:grid;grid-template-columns:1fr 1fr;gap:.55rem}
+  .asistencia label{position:relative;cursor:pointer}
+  .asistencia input{position:absolute;opacity:0;inset:0}
+  .asistencia span{display:block;padding:.75rem .4rem;border-radius:12px;border:1px solid rgba(227,205,184,.4);font-size:.82rem;font-weight:500;text-align:center;color:var(--arena);transition:all .25s ease}
+  .asistencia input:checked+span{background:var(--nude);border-color:var(--nude);color:#4a3826}
+  .asistencia input:focus-visible+span{outline:2px solid rgba(227,205,184,.8);outline-offset:2px}
+
+  .invitado{
+    padding:1rem;border-radius:16px;border:1px solid rgba(227,205,184,.28);
+    background:rgba(251,247,241,.07);display:grid;gap:.75rem;position:relative;
+  }
+  .invitado-top{display:flex;align-items:center;justify-content:space-between;gap:.6rem}
+  .invitado-num{font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--nude)}
+  .quitar{
+    border:0;background:transparent;color:rgba(246,239,230,.55);font-size:.68rem;letter-spacing:.14em;
+    text-transform:uppercase;cursor:pointer;padding:.2rem .3rem;
+  }
+  .quitar:hover{color:var(--nude)}
+  .agregar{
+    width:100%;padding:.8rem;border-radius:12px;border:1px dashed rgba(227,205,184,.5);
+    background:transparent;color:var(--nude);font-family:Outfit,sans-serif;font-size:.78rem;
+    letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:background .25s ease;
+  }
+  .agregar:hover{background:rgba(227,205,184,.1)}
+  .aviso{margin:0;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:.95rem;color:var(--nude)}
+  .error{margin:0;font-size:.78rem;color:#ffc9b8;min-height:1.1em}
+
+  /* ---------- Sobres ---------- */
+  .sobre-icono{width:64px;height:64px;margin:0 auto 1rem;color:var(--nude-hondo)}
+
+  footer{padding:2.6rem 1.4rem calc(env(safe-area-inset-bottom,0px) + 2.2rem);text-align:center;background:#232b18;color:rgba(246,239,230,.55)}
+  footer p{margin:0 0 .35rem;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1rem;color:rgba(246,239,230,.8)}
+  footer small{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase}
+  footer a{color:var(--nude);text-decoration:none;border-bottom:1px solid rgba(227,205,184,.4)}
+</style>
+</head>
+<body class="locked">
+
+<!-- ============ SOBRE ============ -->
+<div class="stage" id="stage">
+  <div class="stage-content">
+    <p class="stage-kicker">Tienes una invitación</p>
+    <button class="envelope" id="abrir" aria-label="Abrir la invitación">
+      <span class="envelope-body">
+        <span class="env-back"></span>
+        <span class="env-letter">
+          <small>Nuestra boda</small>
+          <strong>Brandon &amp; Dahiana</strong>
+        </span>
+        <span class="env-front"></span>
+        <span class="env-flap"></span>
+        <span class="env-seal"><span>B&amp;D</span></span>
+      </span>
+    </button>
+    <p class="stage-hint">Toca el sobre</p>
+  </div>
+</div>
+
+<!-- ============ PORTADA ============ -->
+<section class="cover">
+  <div class="cover-frame"></div>
+  <div class="wrap">
+    <p class="cover-kicker fx">Nos casamos</p>
+    <h1 class="cover-names fx">Brandon<span class="cover-amp">&amp;</span>Dahiana</h1>
+    <div class="rule fx">✦</div>
+    <p class="cover-date fx">
+      <span>Domingo 20 de septiembre</span>
+      <strong>2:00 p.m.</strong>
+      <span>San Felipe Picnic · Laureles</span>
+    </p>
+  </div>
+  <div class="scroll-hint"><span>Desliza</span><i></i></div>
+</section>
+
+<!-- ============ FRASE ============ -->
+<section class="light">
+  <div class="wrap">
+    <svg class="leaf fx" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+      <path d="M12 22C12 22 4 16 4 9a8 8 0 0 1 16 0c0 7-8 13-8 13Z" opacity=".35"/>
+      <path d="M12 22V6M12 12c2-1 3-3 3-3M12 15c-2-1-3-3-3-3"/>
+    </svg>
+    <p class="kicker fx">Hoy comienza para siempre</p>
+    <h2 class="title fx">Y serán una sola carne</h2>
+    <p class="body-text fx">
+      Con la bendición de Dios y de nuestras familias,
+      queremos que seas parte del día en que unimos nuestras vidas.
+      Tu presencia es el regalo que más esperamos.
+    </p>
+  </div>
+</section>
+
+<!-- ============ CUENTA REGRESIVA ============ -->
+<section class="dark">
+  <div class="wrap">
+    <p class="kicker fx">Falta poco</p>
+    <h2 class="title fx">Cuenta regresiva</h2>
+    <div class="countdown fx" id="countdown" aria-live="polite">
+      <div><strong data-cd="d">--</strong><span>Días</span></div>
+      <div><strong data-cd="h">--</strong><span>Horas</span></div>
+      <div><strong data-cd="m">--</strong><span>Min</span></div>
+      <div><strong data-cd="s">--</strong><span>Seg</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FECHA Y LUGAR ============ -->
+<section class="light">
+  <div class="wrap">
+    <p class="kicker fx">Cuándo y dónde</p>
+    <h2 class="title fx">La celebración</h2>
+    <div class="medal fx">
+      <span>Septiembre</span>
+      <strong>20</strong>
+      <span>2:00 p.m.</span>
+    </div>
+    <div class="rule fx">✦</div>
+    <h3 class="place-name fx">San Felipe Picnic</h3>
+    <p class="place-sub fx">Calle 36 #80-22 · Barrio Laureles<br>Medellín, Antioquia</p>
+    <a class="btn btn-olivo fx" href="https://maps.app.goo.gl/6sFWvdG4cXeNpvRs8" target="_blank" rel="noopener">Cómo llegar</a>
+    <br>
+    <a class="btn btn-linea fx" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Boda%20de%20Brandon%20y%20Dahiana&amp;dates=20260920T190000Z/20260920T190000Z&amp;location=San%20Felipe%20Picnic%2C%20Calle%2036%20%2380-22%2C%20Laureles%2C%20Medell%C3%ADn&amp;details=Te%20esperamos%20para%20celebrar%20con%20nosotros." target="_blank" rel="noopener">Agendar</a>
+  </div>
+</section>
+
+<!-- ============ DRESS CODE ============ -->
+<section class="dark">
+  <div class="wrap">
+    <p class="kicker fx">Código de vestuario</p>
+    <h2 class="title fx">Elegante</h2>
+    <p class="body-text fx">Nuestra paleta es verde olivo y nude. Nos encantaría verte dentro de estos tonos.</p>
+    <div class="swatches fx">
+      <figure><i style="--c:#5a6b3b"></i><figcaption>Olivo</figcaption></figure>
+      <figure><i style="--c:#8a9866"></i><figcaption>Salvia</figcaption></figure>
+      <figure><i style="--c:#e3cdb8"></i><figcaption>Nude</figcaption></figure>
+      <figure><i style="--c:#c9a98d"></i><figcaption>Arena</figcaption></figure>
+    </div>
+    <p class="body-text fx" style="font-style:italic">Te pedimos reservar el blanco para la novia.</p>
+  </div>
+</section>
+
+<!-- ============ LLUVIA DE SOBRES ============ -->
+<section class="nude">
+  <div class="wrap">
+    <svg class="sobre-icono fx" viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+      <rect x="4" y="8" width="56" height="36" rx="4"/>
+      <path d="M4 12l28 20 28-20"/>
+    </svg>
+    <p class="kicker fx">Nuestro regalo</p>
+    <h2 class="title fx">Lluvia de sobres</h2>
+    <p class="body-text fx">
+      El mejor regalo es tenerte con nosotros. Si además quieres consentirnos,
+      hemos dispuesto una lluvia de sobres para ayudarnos a construir
+      este nuevo comienzo. Encontrarás un lugar para ellos en la recepción.
+    </p>
+  </div>
+</section>
+
+<!-- ============ MENÚ ============ -->
+<section class="light">
+  <div class="wrap">
+    <p class="kicker fx">Para ti</p>
+    <h2 class="title fx">Escoge tu plato</h2>
+    <p class="body-text fx">Cada invitado elige uno. Lo confirmas más abajo junto con tu nombre.</p>
+
+    <div class="platos">
+      <article class="plato fx">
+        <h3><span>🌮</span> Quesadilla de pollo</h3>
+        <p>En queso mozzarella, salsa de pimientos, cebolla encurtida y crema agria.</p>
+        <p class="con">Acompañada con papas a la francesa 🍟</p>
+      </article>
+      <article class="plato fx">
+        <h3><span>🍗</span> Pollo</h3>
+        <p>Jugoso y a la parrilla, preparado por la casa.</p>
+        <p class="con">Ensalada de papas criollas y guacamole artesanal</p>
+      </article>
+      <article class="plato fx">
+        <h3><span>🥩</span> Cañón</h3>
+        <p>Corte de cerdo al horno, tierno y en su punto.</p>
+        <p class="con">Ensalada de papas criollas y guacamole artesanal</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONFIRMACIÓN ============ -->
+<section class="dark" id="confirmar">
+  <div class="wrap">
+    <p class="kicker fx">Te esperamos</p>
+    <h2 class="title fx">Confirma tu asistencia</h2>
+    <p class="body-text fx">Escribe el nombre de cada persona y el plato que prefiere. Al terminar se abre WhatsApp con tu respuesta lista para enviar.</p>
+
+    <form class="form fx" id="rsvp" novalidate>
+      <div class="campo">
+        <span class="grupo-label">¿Nos acompañas?</span>
+        <div class="asistencia">
+          <label><input type="radio" name="asiste" value="si" checked><span>Sí, allí estaré</span></label>
+          <label><input type="radio" name="asiste" value="no"><span>No podré</span></label>
+        </div>
+      </div>
+
+      <div id="bloque-invitados">
+        <div class="campo">
+          <span class="grupo-label">Nombres y platos</span>
+        </div>
+        <div id="invitados" style="display:grid;gap:.75rem;margin-top:.5rem"></div>
+        <button type="button" class="agregar" id="agregar" style="margin-top:.75rem">+ Agregar acompañante</button>
+      </div>
+
+      <div class="campo" id="campo-nombre-no" style="display:none">
+        <label for="nombre-no">Tu nombre</label>
+        <input type="text" id="nombre-no" name="nombre-no" autocomplete="name" placeholder="Escribe tu nombre">
+      </div>
+
+      <div class="campo">
+        <label for="mensaje">Mensaje para los novios (opcional)</label>
+        <textarea id="mensaje" name="mensaje" placeholder="Escríbeles unas palabras…"></textarea>
+      </div>
+
+      <p class="error" id="error" role="alert"></p>
+      <button type="submit" class="btn btn-wa" id="enviar">Enviar por WhatsApp</button>
+      <p class="aviso">Se abrirá WhatsApp con el mensaje escrito. Solo debes presionar enviar.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>Gracias por celebrar con nosotros</p>
+  <small>Invitación digital por <a href="https://primeraemocion.com" target="_blank" rel="noopener">Primera Emoción</a></small>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  var TELEFONO = "573016951786";
+  var FECHA = new Date("2026-09-20T14:00:00-05:00");
+
+  var PLATOS = {
+    quesadilla: { nombre: "Quesadilla de pollo" },
+    pollo:      { nombre: "Pollo" },
+    canon:      { nombre: "Cañón" }
+  };
+
+  /* ---------- Sobre ---------- */
+  var stage = document.getElementById("stage");
+  var abrir = document.getElementById("abrir");
+  function abrirSobre(){
+    if (stage.classList.contains("is-opening")) return;
+    stage.classList.add("is-opening");
+    setTimeout(function(){
+      stage.classList.add("is-gone");
+      document.body.classList.remove("locked");
+      revelar();
+    }, 1150);
+  }
+  abrir.addEventListener("click", abrirSobre);
+
+  /* ---------- Revelado al hacer scroll ---------- */
+  var piezas = [].slice.call(document.querySelectorAll(".fx"));
+  function revelar(){
+    if (!("IntersectionObserver" in window)) {
+      piezas.forEach(function(p){ p.classList.add("on"); });
+      return;
+    }
+    var obs = new IntersectionObserver(function(entradas){
+      entradas.forEach(function(e){
+        if (!e.isIntersecting) return;
+        var hermanos = [].slice.call(e.target.parentNode.querySelectorAll(".fx"));
+        e.target.style.transitionDelay = (hermanos.indexOf(e.target) * 0.11) + "s";
+        e.target.classList.add("on");
+        obs.unobserve(e.target);
+      });
+    }, { threshold: 0.18, rootMargin: "0px 0px -8% 0px" });
+    piezas.forEach(function(p){ obs.observe(p); });
+  }
+
+  /* ---------- Cuenta regresiva ---------- */
+  var campos = {
+    d: document.querySelector('[data-cd="d"]'),
+    h: document.querySelector('[data-cd="h"]'),
+    m: document.querySelector('[data-cd="m"]'),
+    s: document.querySelector('[data-cd="s"]')
+  };
+  function dosDigitos(n){ return (n < 10 ? "0" : "") + n; }
+  function tick(){
+    var falta = FECHA - new Date();
+    if (falta <= 0){
+      campos.d.textContent = campos.h.textContent = campos.m.textContent = campos.s.textContent = "00";
+      return;
+    }
+    var s = Math.floor(falta / 1000);
+    campos.d.textContent = dosDigitos(Math.floor(s / 86400));
+    campos.h.textContent = dosDigitos(Math.floor(s % 86400 / 3600));
+    campos.m.textContent = dosDigitos(Math.floor(s % 3600 / 60));
+    campos.s.textContent = dosDigitos(s % 60);
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  /* ---------- Invitados ---------- */
+  var contenedor = document.getElementById("invitados");
+  var contador = 0;
+
+  function crearInvitado(){
+    contador++;
+    var fila = document.createElement("div");
+    fila.className = "invitado";
+
+    var opciones = '<option value="">Elige un plato…</option>';
+    for (var k in PLATOS) opciones += '<option value="' + k + '">' + PLATOS[k].nombre + '</option>';
+
+    fila.innerHTML =
+      '<div class="invitado-top">' +
+        '<span class="invitado-num">Invitado ' + contador + '</span>' +
+        '<button type="button" class="quitar" hidden>Quitar</button>' +
+      '</div>' +
+      '<div class="campo">' +
+        '<label>Nombre y apellido</label>' +
+        '<input type="text" class="nombre" autocomplete="name" placeholder="Ej. María Restrepo">' +
+      '</div>' +
+      '<div class="campo">' +
+        '<label>Plato</label>' +
+        '<select class="plato-sel">' + opciones + '</select>' +
+      '</div>';
+
+    var sel = fila.querySelector(".plato-sel");
+
+    fila.querySelector(".quitar").addEventListener("click", function(){
+      fila.remove();
+      renumerar();
+    });
+
+    contenedor.appendChild(fila);
+    renumerar();
+    return fila;
+  }
+
+  function renumerar(){
+    var filas = contenedor.querySelectorAll(".invitado");
+    filas.forEach(function(f, i){
+      f.querySelector(".invitado-num").textContent = "Invitado " + (i + 1);
+      f.querySelector(".quitar").hidden = (filas.length === 1);
+    });
+    contador = filas.length;
+  }
+
+  crearInvitado();
+  document.getElementById("agregar").addEventListener("click", function(){
+    var fila = crearInvitado();
+    fila.querySelector(".nombre").focus();
+  });
+
+  /* ---------- Sí / No ---------- */
+  var bloque = document.getElementById("bloque-invitados");
+  var campoNo = document.getElementById("campo-nombre-no");
+  document.querySelectorAll('input[name="asiste"]').forEach(function(r){
+    r.addEventListener("change", function(){
+      var asiste = (r.value === "si");
+      bloque.style.display = asiste ? "" : "none";
+      campoNo.style.display = asiste ? "none" : "grid";
+    });
+  });
+
+  /* ---------- Envío ---------- */
+  var form = document.getElementById("rsvp");
+  var error = document.getElementById("error");
+
+  form.addEventListener("submit", function(ev){
+    ev.preventDefault();
+    error.textContent = "";
+
+    var asiste = form.querySelector('input[name="asiste"]:checked').value === "si";
+    var mensaje = document.getElementById("mensaje").value.trim();
+    var texto;
+
+    if (!asiste){
+      var quien = document.getElementById("nombre-no").value.trim();
+      if (!quien){
+        error.textContent = "Escribe tu nombre para poder registrarte.";
+        document.getElementById("nombre-no").focus();
+        return;
+      }
+      texto = "Hola Brandon y Dahiana 💌\n" +
+              "Soy " + quien + ".\n" +
+              "Lamentablemente no podré acompañarlos el 20 de septiembre.";
+      if (mensaje) texto += "\n\n" + mensaje;
+      enviar(texto);
+      return;
+    }
+
+    var filas = [].slice.call(contenedor.querySelectorAll(".invitado"));
+    var lista = [];
+    for (var i = 0; i < filas.length; i++){
+      var f = filas[i];
+      var nombre = f.querySelector(".nombre").value.trim();
+      var clave = f.querySelector(".plato-sel").value;
+
+      if (!nombre){
+        error.textContent = "Falta el nombre del invitado " + (i + 1) + ".";
+        f.querySelector(".nombre").focus();
+        return;
+      }
+      if (!clave){
+        error.textContent = "Falta escoger el plato de " + nombre + ".";
+        f.querySelector(".plato-sel").focus();
+        return;
+      }
+
+      var linea = nombre + " — " + PLATOS[clave].nombre;
+      lista.push(linea);
+    }
+
+    texto = "Hola Brandon y Dahiana 💚\n" +
+            "Confirmamos nuestra asistencia a la boda del 20 de septiembre.\n\n" +
+            "Somos " + lista.length + (lista.length === 1 ? " persona:" : " personas:") + "\n" +
+            lista.map(function(l, i){ return (i + 1) + ". " + l; }).join("\n");
+    if (mensaje) texto += "\n\n" + mensaje;
+
+    enviar(texto);
+  });
+
+  function enviar(texto){
+    var url = "https://wa.me/" + TELEFONO + "?text=" + encodeURIComponent(texto);
+    window.open(url, "_blank", "noopener");
+  }
+})();
+</script>
+</body>
+</html>
