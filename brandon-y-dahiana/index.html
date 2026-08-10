@@ -402,7 +402,7 @@ const displayName = "Brandon &amp; Dahiana";
 					});
 					lista.appendChild(li);
 				});
-				lista.classList.toggle("apretada", invitados.length > 6);
+				lista.classList.toggle("apretada", invitados.length > 4);
 			};
 
 			const agregar = () => {
@@ -410,7 +410,7 @@ const displayName = "Brandon &amp; Dahiana";
 				const pla = campoPlato?.value ?? "";
 				if (!nom) { avisar("Escribe el nombre."); campoNombre?.focus(); return false; }
 				if (!pla) { avisar("Escoge un plato."); campoPlato?.focus(); return false; }
-				if (invitados.length >= 12) { avisar("Si son más de 12, escríbenos directamente."); return false; }
+				if (invitados.length >= 8) { avisar("¿Son más de 8? Confirma estos y escríbenos por WhatsApp para el resto."); return false; }
 				invitados.push({ nombre: nom, plato: pla });
 				campoNombre.value = ""; campoPlato.value = "";
 				pintarLista(); avisar(""); campoNombre.focus();
