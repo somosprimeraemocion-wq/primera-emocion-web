@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Primera Emocion//Revelacion de genero//ES
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:revelacion-ositos-20261004@primeraemocion.com
+DTSTAMP:20260912T170000Z
+DTSTART:20261004T200000Z
+SUMMARY:Revelación de género · Una dulce sorpresa
+LOCATION:Manantiales de Robledo - Salón social\, Calle 76DA # 91 91\, Palenque\, Robledo
+DESCRIPTION:Viste de rosado si crees que es niña o azul si crees que es niño. ¡Te esperamos!
+URL:https://primeraemocion.com/revelacion-ositos/
+END:VEVENT
+END:VCALENDAR
