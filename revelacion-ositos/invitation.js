@@ -12,6 +12,9 @@
     try { sessionStorage.setItem(config.eventId, session); } catch {}
   }
   let opened = false, timer, revision = Date.now(), queue = Promise.resolve(), confirmed = false;
+  const updateQuickNav = () => document.body.classList.toggle('has-scrolled', window.scrollY > 60);
+  window.addEventListener('scroll', updateQuickNav, { passive: true });
+  $('.scroll-cue').addEventListener('click', () => document.body.classList.add('has-scrolled'));
   const setStatus = (text, state = '') => { status.textContent = text; status.dataset.state = state; };
   const request = async (path, data, keepalive = false) => {
     if (!config.apiUrl) throw new Error('unconfigured');
@@ -40,6 +43,12 @@
       $('#invitation').inert = false; document.body.classList.add('opened');
       $('#welcome').classList.add('leaving'); $('#music-toggle').hidden = false; $('#quick-nav').hidden = false;
       window.scrollTo(0, 0);
+      updateQuickNav();
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(([entry]) => {
+          document.body.classList.toggle('has-scrolled', entry.intersectionRatio < .75);
+        }, { threshold: [.75] }).observe($('.cover'));
+      }
       $('#cover-title').setAttribute('tabindex', '-1'); $('#cover-title').focus({ preventScroll: true });
       setTimeout(() => { $('#welcome').hidden = true; }, 900);
       if ('IntersectionObserver' in window) {
