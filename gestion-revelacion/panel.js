@@ -51,7 +51,7 @@
       if (!response.ok) throw new Error('No se pudo consultar el registro. Reintenta en un momento.');
       const data = await response.json(); records = data.responses;
       $('#login').hidden = true; $('#dashboard').hidden = false; $('#token').value = '';
-      $('#opened').textContent = data.metrics.opened || 0; $('#started').textContent = data.metrics.started || 0;
+      $('#started').textContent = data.metrics.started || 0;
       $('#saved').textContent = records.length;
       $('#attendees').textContent = records.filter(r => r.attendance === 'yes' && r.confirmed_at).reduce((sum, r) => sum + r.party_count, 0);
       $('#updated').textContent = `Última consulta: ${formatDate(new Date())}`;
