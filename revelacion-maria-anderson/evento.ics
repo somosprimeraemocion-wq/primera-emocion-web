@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Primera Emocion//Revelacion de genero//ES
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:revelacion-maria-anderson-20261007@primeraemocion.com
+DTSTAMP:20260915T170000Z
+DTSTART:20261007T200000Z
+SUMMARY:Revelación de género · Una dulce sorpresa
+LOCATION:Playa de Rocky Cay - Entrada de Aqua\, San Andrés
+DESCRIPTION:Viste de rosado si crees que es niña o azul si crees que es niño. ¡Te esperamos!
+URL:http://127.0.0.1:8086/revelacion-maria-anderson/
+END:VEVENT
+END:VCALENDAR
